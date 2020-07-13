@@ -536,7 +536,6 @@ def universe_backtest(portfolio, start_date, end_date):
     return returns
 
 
-
 # 
 # 
 # 
@@ -553,7 +552,7 @@ def build_documentation(portfolio, features, model, hist_depth, train_depth, sta
     ann_returns = annualized_returns(returns, tot_return=total_returns)
     max_draw = max_drawdown(cumul_returns)
     min_balance = min_amount(cumul_returns)
-    
+    sharpe = sharpe_ratio(returns)
     
     docu_dict = {
         'tickers' : [tickers], 
@@ -570,6 +569,7 @@ def build_documentation(portfolio, features, model, hist_depth, train_depth, sta
         'returns' : [returns], 
         'cumulative returns' : [cumul_returns], 
         'total return' : [total_returns], 
+        'sharpe ratio: ' : [sharpe], 
         'annualized return' : [ann_returns],
         'return volatility' : [return_vol], 
         'max drawdown' : [max_draw], 
@@ -591,7 +591,7 @@ def build_documentation(portfolio, features, model, hist_depth, train_depth, sta
         snp_ann = annualized_returns(snp_returns, tot_return=snp_total)
         snp_max_draw = max_drawdown(snp_cumul)
         snp_min_balance = min_amount(snp_cumul)
-
+        snp_sharpe = sharpe_ratio(snp_returns)
 
         snp_dict = {
             'tickers' : ['N/A'], 
@@ -608,6 +608,7 @@ def build_documentation(portfolio, features, model, hist_depth, train_depth, sta
             'returns' : [snp_returns], 
             'cumulative returns' : [snp_cumul], 
             'total return' : [snp_total], 
+            'sharpe ratio' : [snp_sharpe], 
             'annualized return' : [snp_ann],
             'return volatility' : [snp_vol], 
             'max drawdown' : [snp_max_draw], 
