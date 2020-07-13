@@ -514,6 +514,10 @@ def min_amount(cumulative_returns):
     return min(cumulative_returns)
 
 
+def sharpe_ratio(returns):
+    return np.sqrt(12) * np.mean(returns)/np.std(returns)
+
+
 def annualized_returns(returns,  unit=1/12, tot_return=None):
     if type(tot_return) != float:
         cumul_returns = cumulative_returns(returns)
