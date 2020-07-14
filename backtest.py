@@ -573,7 +573,7 @@ def build_documentation(portfolio, features, model, hist_depth, train_depth, sta
         'returns' : [returns], 
         'cumulative returns' : [cumul_returns], 
         'total return' : [total_returns], 
-        'sharpe ratio: ' : [sharpe], 
+        'sharpe ratio' : [sharpe], 
         'annualized return' : [ann_returns],
         'return volatility' : [return_vol], 
         'max drawdown' : [max_draw], 
